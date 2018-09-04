@@ -52,13 +52,27 @@ static osjob_t sendjob;
 // cycle limitations).
 const unsigned TX_INTERVAL = 60;
 
+//#define GENERIC
+#define CR0x // Configures for use with the CR01/CR02/CR03
+
 // Pin mapping
+#ifndef GENERIC
 const lmic_pinmap lmic_pins = {
     .nss = 6,
     .rxtx = LMIC_UNUSED_PIN,
     .rst = 5,
     .dio = {2, 3, 4},
 };
+#endif
+
+#ifndef CROx
+const lmic_pinmap lmic_pins = {
+  .nss = 10,
+  .rxtx = LMIC_UNUSED_PIN,
+  .rst = LMIC_UNUSED_PIN,
+  .dio = {LMIC_UNUSED_PIN, LMIC_UNUSED_PIN, LMIC_UNUSED_PIN},
+};
+#endif
 
 void onEvent (ev_t ev) {
     Serial.print(os_getTime());
