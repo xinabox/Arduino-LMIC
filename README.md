@@ -7,7 +7,7 @@ const lmic_pinmap lmic_pins = {
   .nss = 10,
   .rxtx = LMIC_UNUSED_PIN,
   .rst = LMIC_UNUSED_PIN,
-  .dio = {LMIC_UNUSED_PIN, LMIC_UNUSED_PIN, LMIC_UNUSED_PIN}, //2,4,na
+  .dio = {LMIC_UNUSED_PIN, LMIC_UNUSED_PIN, LMIC_UNUSED_PIN}
 };
 ```
 This repository contains the IBM LMIC (LoraMAC-in-C) library, slightly
