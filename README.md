@@ -1,5 +1,15 @@
 # Arduino-LMIC
-====================
+```C
+This code is based on the pull request in the original code, where no DIO-pins are needed!
+
+// Pin mapping
+const lmic_pinmap lmic_pins = {
+  .nss = 10,
+  .rxtx = LMIC_UNUSED_PIN,
+  .rst = LMIC_UNUSED_PIN,
+  .dio = {LMIC_UNUSED_PIN, LMIC_UNUSED_PIN, LMIC_UNUSED_PIN}, //2,4,na
+};
+```
 This repository contains the IBM LMIC (LoraMAC-in-C) library, slightly
 modified to run in the Arduino environment, allowing using the SX1272,
 SX1276 tranceivers and compatible modules (such as some HopeRF RFM9x
