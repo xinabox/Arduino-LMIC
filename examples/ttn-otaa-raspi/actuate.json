@@ -1,0 +1,11 @@
+{
+  "actuate": [
+    {
+      "asset": "r",
+      "field": {
+        "byte": 0,
+        "type": "boolean"
+      }
+    }
+  ]
+}
