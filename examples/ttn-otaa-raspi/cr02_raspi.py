@@ -23,7 +23,7 @@ methods_.cr02_init(appeui, deveui, appkey, debug)
 methods_.oc03_init()
 
 # open the relay initially
-methods_oc03_write(0)
+methods_.oc03_write(0)
 
 while True:
 
