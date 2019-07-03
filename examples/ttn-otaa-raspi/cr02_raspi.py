@@ -10,6 +10,7 @@ appkey = methods_.stringToBytes('')
 
 debug = 48  # set to 49 to enable debugging on CR02
 
+
 # reset CR02
 methods_.cr02_reset()
 
@@ -20,6 +21,9 @@ calibration_params = bme280.load_calibration_params(methods_.bus, sw01_addr)
 
 methods_.cr02_init(appeui, deveui, appkey, debug)
 methods_.oc03_init()
+
+# open the relay initially
+methods_oc03_write(0)
 
 while True:
 
