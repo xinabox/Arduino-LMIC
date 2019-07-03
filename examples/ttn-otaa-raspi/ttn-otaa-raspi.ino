@@ -12,6 +12,7 @@ char incomingByte[3];
 bool debug = true;
 bool keysSet = false;
 bool nextKey = true;
+uint8_t byteLen;
 
 uint8_t result;
 void os_getArtEui (u1_t* buf) {
@@ -59,11 +60,13 @@ void onEvent (ev_t ev) {
       Serial.println(F("EV_BEACON_TRACKED"));
       break;
     case EV_JOINING:
-
+      digitalWrite(14, HIGH);
+      digitalWrite(15, LOW);
       Serial.println(F("EV_JOINING"));
       break;
     case EV_JOINED:
-      //digitalWrite(15, HIGH);
+      digitalWrite(15, HIGH);
+      digitalWrite(14, LOW);
       Serial.println(F("EV_JOINED"));
 
       // Disable link check validation (automatically enabled
@@ -128,7 +131,7 @@ void do_send(osjob_t* j) {
     Serial.println(F("OP_TXRXPEND, not sending"));
   } else {
     // Prepare upstream data transmission at the next possible time.
-    LMIC_setTxData2(1, payload, strlen(payload), 0);
+    LMIC_setTxData2(1, payload, byteLen, 0);
     Serial.println(F("Packet queued"));
   }
 
@@ -139,9 +142,9 @@ void setup() {
   Wire.begin(8);                // join i2c bus with address #8
   Wire.onReceive(receiveHandle); // register event
   Wire.onRequest(requestHandle);
-  //pinMode(14, OUTPUT);
-  //pinMode(15, OUTPUT);
-  //pinMode(16, OUTPUT);
+  pinMode(14, OUTPUT);
+  pinMode(15, OUTPUT);
+  pinMode(16, OUTPUT);
 
 
   // LMIC init
@@ -240,7 +243,7 @@ void receiveHandle(int howMany) {
 
   while (Wire.available() > 1 && keysSet == true) {
     if (Wire.read() == '0') {
-      uint8_t byteLen = Wire.available();
+      byteLen = Wire.available();
       Serial.print("DATA LENGTH: ");
       Serial.println(byteLen);
       Serial.print("DATA: ");
@@ -255,7 +258,7 @@ void receiveHandle(int howMany) {
 }
 
 void requestHandle() {
-  if (LMIC.dataLen == 1) {
+  //if (LMIC.dataLen == 1) {
     switch (result) {
       case 0xFF:
         Wire.write("1");
@@ -264,5 +267,5 @@ void requestHandle() {
         Wire.write("0");
         break;
     }
-  }
+  //}
 }
