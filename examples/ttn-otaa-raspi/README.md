@@ -103,7 +103,7 @@ Hardware setup for Raspberry Pi is shown below
 
 <img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/raspisetup.jpg" alt="alt text" width="30%" height="auto" align="center">
 
-Assuming Python 3 is installed on your Raspberry Pi, the following python packages are required:
+Assuming Python 3 and pip3 is installed on your Raspberry Pi, the following python packages are required:
 
 ```python
 sudo pip3 install smbus2
@@ -111,7 +111,7 @@ sudo pip3 install cbor
 sudo pip3 install RPi.bme280
 ```
 
-run the cr02_raspi.py file
+download the cr02_raspi.py and methods_.py files and run cr02_raspi.py
 
 ```python
 sudo python3 cr02_raspi.py
