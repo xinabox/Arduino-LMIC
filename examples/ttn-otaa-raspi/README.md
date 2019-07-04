@@ -86,7 +86,7 @@ That completes the CR02 configuration.
 
 <img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo9.png" alt="alt text" width="70%" height="auto" align="center">
 
-10. Paste the ttn-otaa-raspi.json contents in the field.
+10. Paste the actuate.json contents in the field.
 
 <img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo10.png" alt="alt text" width="70%" height="auto" align="center">
 
