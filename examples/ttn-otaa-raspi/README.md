@@ -94,4 +94,25 @@ That completes the CR02 configuration.
 
 <img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo11.png" alt="alt text" width="90%" height="auto" align="center">
 
-12. 
+That completes the OKdo setup
+
+
+## Raspberry Pi Configuration
+
+Hardware setup for Raspberry Pi is shown below
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/raspisetup.jpg" alt="alt text" width="90%" height="auto" align="center">
+
+Assuming Python 3 is installed on your Raspberry Pi, the following python packages are required:
+
+```python
+sudo pip3 install smbus2
+sudo pip3 install cbor
+sudo pip3 install RPi.bme280
+```
+
+run the cr02_raspi.py file
+
+```python
+sudo python3 cr02_raspi.py
+```
