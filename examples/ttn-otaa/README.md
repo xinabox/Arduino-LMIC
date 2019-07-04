@@ -93,7 +93,7 @@ That completes the OKdo setup
 
 The green LED on CR02 will light up when you have succesfully connected to The Things Network. The LED will remain RED if a connection is being attempted.
 
-<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/raspijoining.jpg" alt="alt text" width="30%" height="auto" align="center"> <img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/raspijoined.jpg" alt="alt text" width="30%" height="auto" align="center">
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/cr02joining.jpg" alt="alt text" width="30%" height="auto" align="center"> <img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/cr02joined.jpg" alt="alt text" width="30%" height="auto" align="center">
 
 In your Things Network Console you’ll see data being received from CR02 in CBOR format. Data is only sent every minute to the Things Network. When actuating the relay from OKdo using the toggle pin, a value of 0xFF is scheduled for downlink. On the next cycle, the value is sent to CR02 to actuate the relay. You will see the green LED on OC03 light up indicating the relay’s contact is closed.
 
