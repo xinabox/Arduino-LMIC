@@ -12,7 +12,11 @@ This example demonstrates how to transmit and receive information to and from th
 - [Arduino IDE](https://www.arduino.cc/en/main/software)
 - [OKdo IoT cloud](https://okdo.allthingstalk.com/)
 - [The Things Network](https://thethingsnetwork.org)
-
+- [arduino-SL01](https://github.com/xinabox/arduino-SL01)
+- [arduino-SW01](https://github.com/xinabox/arduino-SW01)
+- [arduino-OC03](https://github.com/xinabox/arduino-OC03)
+- [arduino-CORE](https://github.com/xinabox/arduino-CORE)
+- [arduino-LMIC](https://github.com/xinabox/arduino-LMIC)
 
 ## xChip Configuration
 
