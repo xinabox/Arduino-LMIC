@@ -17,7 +17,7 @@ This example demonstrates how to transmit and receive information to and from th
 
 Assemble IP01, CR02, SW01, OC03 and SL01 as per the image below and insert it into your computer.
 
-<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/cr02arduino.jpg" alt="alt text" width="15%" height="auto" align="center">
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/cr02arduino.jpg" alt="alt text" width="35%" height="auto" align="center">
 
 ## The Things Network Setup
 
@@ -76,40 +76,17 @@ Assemble IP01, CR02, SW01, OC03 and SL01 as per the image below and insert it in
 
 <img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo8.png" alt="alt text" width="70%" height="auto" align="center">
 
-9. Enable use ABCL to convert custom binary data. ABCL will only be used for actuation. Data is received as CBOR
+9. Enable use ABCL to convert custom binary data. We will be converting all bonary data manually.
 
 <img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo9.png" alt="alt text" width="70%" height="auto" align="center">
 
-10. Paste the actuate.json contents in the field.
-
-<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo10.png" alt="alt text" width="70%" height="auto" align="center">
+10. Paste the okdoabcl.json contents in the field.
 
 11. Create a new pinboard to visualize your data and to easily control OC03. New Pinboard > Pinboard Name > Arrange Pinboard > New pin > Select the toggle pin and assign it to your relay (r) asset. You can assign the data log pin for temperature, humidity and pressure.
 
 <img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo11.png" alt="alt text" width="70%" height="auto" align="center">
 
 That completes the OKdo setup
-
-
-## Raspberry Pi Configuration
-
-Hardware setup for Raspberry Pi is shown below
-
-<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/raspisetup.jpg" alt="alt text" width="30%" height="auto" align="center">
-
-Assuming Python 3 and pip3 is installed on your Raspberry Pi, the following python packages are required:
-
-```python
-sudo pip3 install smbus2
-sudo pip3 install cbor
-sudo pip3 install RPi.bme280
-```
-
-download the cr02_raspi.py and methods_.py files and run cr02_raspi.py
-
-```python
-sudo python3 cr02_raspi.py
-```
 
 ## Result
 
