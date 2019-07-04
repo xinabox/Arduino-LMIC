@@ -31,24 +31,67 @@ That completes the CR02 configuration.
 2. Navigate to [The Things Console](https://console.thethingsnetwork.org)
 3. Select application and add a new application. Give the application a name and an optional description.
 
-<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/ttn1.png" alt="alt text" width="15%" height="auto" align="center">
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/ttn1.png" alt="alt text" width="90%" height="auto" align="center">
 
 4. Below the devices heading register a new device. Provide an ID for the device and generate the Device EUI.
 
-<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/ttn2.png" alt="alt text" width="15%" height="auto" align="center">
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/ttn2.png" alt="alt text" width="90%" height="auto" align="center">
 
-5. The keys will be generated similar to the image below.
+5. The keys will be generated similar to the image below. You will require these keys for OKdo.
 
-<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/ttn3.png" alt="alt text" width="15%" height="auto" align="center">
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/ttn3.png" alt="alt text" width="90%" height="auto" align="center">
 
 6. Navigate back to devices and open up the integrations tab. Add the AllThingsTalk Maker intergation.
 
-<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/ttn4.png" alt="alt text" width="15%" height="auto" align="center">
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/ttn4.png" alt="alt text" width="90%" height="auto" align="center">
 
-<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/ttn5.png" alt="alt text" width="15%" height="auto" align="center">
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/ttn5.png" alt="alt text" width="90%" height="auto" align="center">
 
 7. Provide a unique ID and select the default access key and complete the integration. You have now created the integration between OKdo and The Things Network.
 
-<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/ttn6.png" alt="alt text" width="15%" height="auto" align="center">
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/ttn6.png" alt="alt text" width="90%" height="auto" align="center">
 
-8. 
+## OKdo Setup
+
+1. Create an account on [OKdo All Things Talk](https://okdo.allthingstalk.com/)
+2. Add a new ground
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo1.png" alt="alt text" width="90%" height="auto" align="center">
+
+3. In the Devices menu, add a new device and select your own LoRa device
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo2.png" alt="alt text" width="90%" height="auto" align="center">
+
+4. Add The Things Network integration
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo3.png" alt="alt text" width="90%" height="auto" align="center">
+
+5. Provide a name for your device and paste your keys provided by The Things Network into the respective fields.
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo4.png" alt="alt text" width="90%" height="auto" align="center">
+
+6. Add new assets to your device. For sensor data you’d want to create a sensor asset with a number data type. For actuating the OC03, you’d create an actuator asset with a boolean data type. Assets will need to be created with the names t, h, p and r.
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo5.png" alt="alt text" width="90%" height="auto" align="center">  <img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo6.png" alt="alt text" width="90%" height="auto" align="center">
+
+6. You should have the following assets on your screen
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo7.png" alt="alt text" width="90%" height="auto" align="center">
+
+7. In the settings menu in the top right corner, navigate to payload formats 
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo8.png" alt="alt text" width="90%" height="auto" align="center">
+
+9. Enable use ABCL to convert custom binary data. ABCL will only be used for actuation. Data is received as CBOR
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo9.png" alt="alt text" width="90%" height="auto" align="center">
+
+10. Paste the ttn-otaa-raspi.json contents in the field.
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo10.png" alt="alt text" width="90%" height="auto" align="center">
+
+11. Create a new pinboard to visualize your data and to easily control OC03. New Pinboard > Pinboard Name > Arrange Pinboard > New pin > Select the toggle pin and assign it to your relay (r) asset. You can assign the data log pin for temperature, humidity and pressure.
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo11.png" alt="alt text" width="90%" height="auto" align="center">
+
+12. 
