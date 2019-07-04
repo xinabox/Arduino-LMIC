@@ -89,6 +89,30 @@ Assemble IP01, CR02, SW01, OC03 and SL01 as per the image below and insert it in
 
 That completes the OKdo setup
 
+
+## Arduino Code
+
+Replace the keys in the ttn-otaa.ino file with your keys from the The Things Network. Upload the code to CR02 using Arduino Pro Mini as the board. The keys will expand to array format when you click on the arrows. Change it to lsb for dev eui and appeui.
+
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/ttn3.png" alt="alt text" width="70%" height="auto" align="center">
+
+```c
+static const u1_t PROGMEM APPEUI[8]={ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8);}
+ 
+// This should also be in little endian format, see above.
+static const u1_t PROGMEM DEVEUI[8]={ 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
+ 
+// This key should be in big endian format (or, since it is not really a
+// number but a block of memory, endianness does not really apply). In
+// practice, a key taken from ttnctl can be copied as-is.
+// The key shown here is the semtech default key.
+static const u1_t PROGMEM APPKEY[16] = { 0x2B, 0x7E, 0x15, 0x16, 0x28, 0xAE, 0xD2, 0xA6, 0xAB, 0xF7, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3C };
+void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
+```
+
 ## Result
 
 The green LED on CR02 will light up when you have succesfully connected to The Things Network. The LED will remain RED if a connection is being attempted.
@@ -96,5 +120,11 @@ The green LED on CR02 will light up when you have succesfully connected to The T
 <img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/cr02joining .jpg" alt="alt text" width="30%" height="auto" align="center"> <img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/cr02joined.jpg" alt="alt text" width="30%" height="auto" align="center">
 
 In your Things Network Console you’ll see data being received from CR02 as bytes. Data is only sent every minute to the Things Network. When actuating the relay from OKdo using the toggle pin, a value of 0xFF is scheduled for downlink. On the next cycle, the value is sent to CR02 to actuate the relay. You will see the LED on OC03 light up indicating the relay’s contact is closed.
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/ttn7.png" alt="alt text" width="70%" height="auto" align="center">
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/okdo12.png" alt="alt text" width="70%" height="auto" align="center">
+
+<img src="https://github.com/xinabox/arduino-LMIC/blob/master/extras/cr02contactclosed.jpg" alt="alt text" width="70%" height="auto" align="center">
 
 
